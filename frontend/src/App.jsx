@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import './App.scss';
 import HomeRoute from './components/HomeRoute';
-
+import useApplicationData from '../hooks/useApplicationData';
 import photos from 'mocks/photos';
 import topics from 'mocks/topics';
 
@@ -13,9 +13,9 @@ import topics from 'mocks/topics';
 const App = () => {
   const {
     state,
-    onPhotoSelect,
+    setPhotoSelected,
     updateToFavPhotoIds,
-    onLoadTopic,
+    onOpenPhotoDetailsModal,
     onClosePhotoDetailsModal,
   } = useApplicationData();
 
