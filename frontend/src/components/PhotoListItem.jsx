@@ -17,10 +17,7 @@ const PhotoListItem = ({data, selected, SetFavoriteNavBar}) => {
           <span className="photo-list__user-location">{location.city}</span>
         </div>    
     </div>
-    </div>
-      
-
-    
+    </div>    
 };
 
 export default PhotoListItem;
