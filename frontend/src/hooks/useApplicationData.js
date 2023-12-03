@@ -27,6 +27,8 @@ function reducer(state, action) {
       };
     case ACTIONS.SET_PHOTO_DATA:
       return { ...state, photoData: action.payload };
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+      return { ...state, photosTopicData: action.payload };
     case ACTIONS.SET_TOPIC_DATA:
       return { ...state, topicData: action.payload };
     case ACTIONS.SELECT_PHOTO:
@@ -46,6 +48,10 @@ const useApplicationData = () => {
 
   const updateToFavPhotoIds = (newFavPhotoIds) => {
     dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: newFavPhotoIds });
+  };
+
+  const photosTopicData = (topicId) => {
+    dispatch({ type: ACTIONS.photosTopicData, payload: topicId });
   };
 
   const setPhotoData = (photos) => {
@@ -81,6 +87,7 @@ const useApplicationData = () => {
     onClosePhotoDetailsModal,
     setPhotoData,
     setTopicData,
+    photosTopicData,
     // Other actions...
   };
 };

@@ -5,10 +5,10 @@ import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
 
 
-const HomeRoute = ({photos, topics, onOpenPhotoDetailsModal, onClosePhotoDetailsModal, state, setPhotoSelected, updateToFavPhotoIds, removeFromFavPhotoIds}) => {
+const HomeRoute = ({photos, topics, onOpenPhotoDetailsModal, onClosePhotoDetailsModal, state, setPhotoSelected, updateToFavPhotoIds, removeFromFavPhotoIds, handlePhotosTopics}) => {
  
   return <div className="home-route">
-  <TopNavigation topics={topics} favPhotoIds={state.favPhotoIds} />
+  <TopNavigation topics={topics} favPhotoIds={state.favPhotoIds} handlePhotosTopics={handlePhotosTopics} />
   <PhotoList  onOpenPhotoDetailsModal={onOpenPhotoDetailsModal} photos={photos} setPhotoSelected={setPhotoSelected} updateToFavPhotoIds={updateToFavPhotoIds} favPhotoIds={state.favPhotoIds} removeFromFavPhotoIds={removeFromFavPhotoIds} />
   {state.isPhotoDetailsModalOpen && <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} selectedPhoto={state.selectedPhoto} favPhotoIds={state.favPhotoIds} /> }
   </div>
