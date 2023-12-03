@@ -3,24 +3,14 @@ import TopNavigation from "./TopNavigationBar";
 import PhotoList from "./PhotoList";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
 
-const reducerModal = (state, action) => {
-  switch(action.type) {
-    case 'MODAL':
-      return { open: !state.open, photo: action.photo  };
-    default:
-      return state
-  }
- 
-}
 
-const HomeRoute = ({photos, topics}) => {
-  const [favoriteNavBar, SetFavoriteNavBar] = useState(false);
-  const initialState = { open: false, photo: "" };
-  const [state, dispatch] = useReducer(reducerModal, initialState);
+
+const HomeRoute = ({photos, topics, onOpenPhotoDetailsModal, onClosePhotoDetailsModal, state, setPhotoSelected, updateToFavPhotoIds, removeFromFavPhotoIds}) => {
+ 
   return <div className="home-route">
-  <TopNavigation topics={topics} favoriteNavBar={favoriteNavBar}/>
-  <PhotoList photos={photos} selected={false}  SetFavoriteNavBar={SetFavoriteNavBar} dispatch={dispatch} />
-  {state.open && <PhotoDetailsModal dispatch={dispatch} photo={state.photo} /> }
+  <TopNavigation topics={topics} favPhotoIds={state.favPhotoIds} />
+  <PhotoList  onOpenPhotoDetailsModal={onOpenPhotoDetailsModal} photos={photos} setPhotoSelected={setPhotoSelected} updateToFavPhotoIds={updateToFavPhotoIds} favPhotoIds={state.favPhotoIds} removeFromFavPhotoIds={removeFromFavPhotoIds} />
+  {state.isPhotoDetailsModalOpen && <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} selectedPhoto={state.selectedPhoto} favPhotoIds={state.favPhotoIds} /> }
   </div>
 };
 
