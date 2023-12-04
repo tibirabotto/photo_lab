@@ -7,7 +7,7 @@ The PhotoLabs project for the Web Development React course programming.
 
 ### Application in Action
 
-![Application in action](https://github.com/tibirabotto/tweeter/blob/main/photoLab.gif?raw=true)
+![Application in action](https://github.com/tibirabotto/photo_lab/blob/main/photoLab.gif?raw=true)
 
 
 
