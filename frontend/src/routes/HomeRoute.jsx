@@ -8,8 +8,21 @@ const HomeRoute = ({photos, topics, onOpenPhotoDetailsModal, onClosePhotoDetails
   return (
     <div className="home-route">
       <TopNavigation topics={topics} favPhotoIds={state.favPhotoIds} handlePhotosTopics={handlePhotosTopics} />
-      <PhotoList  onOpenPhotoDetailsModal={onOpenPhotoDetailsModal} photos={photos} setPhotoSelected={setPhotoSelected} updateToFavPhotoIds={updateToFavPhotoIds} favPhotoIds={state.favPhotoIds} removeFromFavPhotoIds={removeFromFavPhotoIds} />
-      {state.isPhotoDetailsModalOpen && <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} selectedPhoto={state.selectedPhoto} favPhotoIds={state.favPhotoIds} /> }
+      <PhotoList  
+        onOpenPhotoDetailsModal={onOpenPhotoDetailsModal} 
+        photos={photos} 
+        setPhotoSelected={setPhotoSelected} 
+        updateToFavPhotoIds={updateToFavPhotoIds} 
+        favPhotoIds={state.favPhotoIds} 
+        removeFromFavPhotoIds={removeFromFavPhotoIds} />
+    {   state.isPhotoDetailsModalOpen && 
+        <PhotoDetailsModal 
+          onClosePhotoDetailsModal={onClosePhotoDetailsModal} 
+          selectedPhoto={state.selectedPhoto}
+          updateToFavPhotoIds={updateToFavPhotoIds}
+          removeFromFavPhotoIds={removeFromFavPhotoIds}
+          favPhotoIds={state.favPhotoIds} /> 
+      }
     </div>
   );
 };

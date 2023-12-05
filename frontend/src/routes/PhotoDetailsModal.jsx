@@ -5,7 +5,7 @@ import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from 'components/PhotoList';
 import PhotoFavButton from "../components/PhotoFavButton";
 
-const PhotoDetailsModal = ({onClosePhotoDetailsModal, selectedPhoto, favPhotoIds}) => {
+const PhotoDetailsModal = ({onClosePhotoDetailsModal, selectedPhoto, favPhotoIds, updateToFavPhotoIds, removeFromFavPhotoIds}) => {
   return (
     <><div className="photo-details-modal">
       <div className="photo-details-modal__top-bar">
@@ -25,7 +25,11 @@ const PhotoDetailsModal = ({onClosePhotoDetailsModal, selectedPhoto, favPhotoIds
         </div>  
         <hr/>    
         <span>Related Photos</span>
-        <PhotoList photos={Object.values(selectedPhoto.similar_photos)} favPhotoIds={favPhotoIds}/>    
+        <PhotoList photos={Object.values(selectedPhoto.similar_photos)} 
+          favPhotoIds={favPhotoIds} 
+          selectedPhoto={selectedPhoto} 
+          removeFromFavPhotoIds={removeFromFavPhotoIds}
+          updateToFavPhotoIds={updateToFavPhotoIds}/>    
     </div>
    
 
